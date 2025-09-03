@@ -25,7 +25,7 @@ A história dessa minhoca é um lembrete de que **persistência e paciência nos
 
 👉 Aqui vai um espaço para você colocar o GIF mostrando a minhoca em ação:
 
-![Demo](./demo.gif)
+![Demo](public/minhoca.gif)
 
 ---
 
