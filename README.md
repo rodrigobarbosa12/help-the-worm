@@ -23,8 +23,6 @@ A história dessa minhoca é um lembrete de que **persistência e paciência nos
 
 ## 🎥 Demonstração
 
-👉 Aqui vai um espaço para você colocar o GIF mostrando a minhoca em ação:
-
 ![Demo](public/minhoca.gif)
 
 ---
@@ -74,4 +72,4 @@ docker run -p 8080:8080 help-the-worm
 - ⚛️ React
 - 🟦 TypeScript
 - 🐳 Docker
-- 🎨 CSS/Styled Components (ou a que você usou)
+- 🎨 CSS
