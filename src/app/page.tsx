@@ -36,17 +36,17 @@ export default function HelpTheWorm() {
   }, [amountToDown])
 
   const upWorm = useCallback(async () => {
-    reset()
+    if (countUps > 0) reset()
 
-    let countUps = 0
+    let count = 0
 
     const upCM = Array.from({ length: maxCM }).map((v, i) => i)
 
     for await (const cm of upCM) {
-      if (countUps === amountToUp) {
+      if (count === amountToUp) {
         await downWorm()
 
-        countUps = 0
+        count = 0
 
         await waitAmoment(1000)
       }
@@ -55,9 +55,22 @@ export default function HelpTheWorm() {
       setMovement(cm)
       await waitAmoment(150)
 
-      countUps++
+      count++
     }
-  }, [downWorm, amountToUp, maxCM])
+  }, [downWorm, amountToUp, maxCM, countUps])
+
+  function disableBtns() {
+    switch (true) {
+      case countUps === 0:
+        return false
+
+      case countUps === maxCM:
+        return false
+
+      default:
+        return true
+    }
+  }
 
   return (
     <>
@@ -81,6 +94,7 @@ export default function HelpTheWorm() {
             amountToDown={amountToDown}
             upWorm={upWorm}
             reset={reset}
+            disabled={disableBtns()}
           />
         </main>
       </div>

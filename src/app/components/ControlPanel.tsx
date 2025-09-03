@@ -7,6 +7,7 @@ interface Props {
   holeDepth: number
   amountToUp: number
   amountToDown: number
+  disabled: boolean
   upWorm: () => void
   reset: () => void
 }
@@ -18,6 +19,7 @@ export function ControlPanel({
   holeDepth,
   amountToUp,
   amountToDown,
+  disabled,
   upWorm,
   reset,
 }: Props) {
@@ -87,11 +89,29 @@ export function ControlPanel({
               Clique no botão abaixo para ajudar a minhoca a sair do buraco
             </p>
           </div>
-          <button className="start-button" onClick={upWorm}>
+          <button
+            className="start-button"
+            onClick={upWorm}
+            disabled={disabled}
+            style={{
+              background: disabled
+                ? 'linear-gradient(135deg, #10b98146 0%, #0596685d 100%)'
+                : undefined,
+              cursor: disabled ? 'not-allowed' : 'pointer',
+            }}
+          >
             <span className="button-icon">🪱</span>
             <span className="button-text">Vai minhoca!</span>
           </button>
-          <button className="reset-button" onClick={reset}>
+          <button
+            className="reset-button"
+            onClick={reset}
+            disabled={disabled}
+            style={{
+              background: disabled ? 'rgb(153 153 153 / 16%)' : undefined,
+              cursor: disabled ? 'not-allowed' : 'pointer',
+            }}
+          >
             <span className="button-text">Resetar</span>
           </button>
         </div>
